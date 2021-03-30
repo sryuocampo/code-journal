@@ -21,18 +21,18 @@
         <h2>Code Journal</h2>
       </div>
     </div>
-    <form id="entry-form">
-      <div class="container" data-view="entry-form">
+    <form id="entry-form" data-view="entry-form">
+      <div class="container" >
         <div class="row">
-          <div class="column-full">
+          <div class="column-full entry-header">
             <h1>New Entry</h1>
           </div>
         </div>
         <div class="row">
-          <div class="column-half">
+          <div class="column-half image-section">
             <img id="photoPreview" src="./images/placeholder-image-square.jpg" />
           </div>
-          <div class="column-half">
+          <div class="column-half input-section">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" required />
             <label for="photoUrl">Photo URL</label>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="column-full">
+          <div class="column-full notes-section">
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes" required rows="8"></textarea>
             <input type="submit" id="save" value="SAVE" />
