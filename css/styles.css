@@ -2,7 +2,7 @@
   background-color: rgb(86, 43, 129);
 }
 
-h2 {
+.journal-header > h2 {
   color: white;
   width: 100%;
   text-align: left;
@@ -44,4 +44,49 @@ textarea {
 .notes-section {
   display: flex;
   flex-direction: column;
+}
+
+#new-entry {
+  background-color: rgb(86, 43, 129);
+  color: white;
+  border-radius: 5px;
+  border: 1px solid black;
+  width: 70px;
+  height: 30px;
+  margin: 0;
+}
+
+li.row {
+  margin-bottom: 20px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.new-entry-header > h2 {
+  color: white;
+  margin-right: 20px;
+}
+
+.code-entries-header {
+  width: 100%;
+}
+
+.new-entry-header {
+  display: flex;
+  align-items: baseline;
+}
+
+.new-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.current-entries {
+  max-width: 100%;
 }
