@@ -22,12 +22,7 @@ $entryForm.addEventListener('submit', function (event) {
   $entryForm.reset();
   var list = renderEntryDomTree(formInputValue);
   entryHolder.prepend(list);
-  entryHolder.scrollIntoView();
-});
-
-window.addEventListener('beforeunload', function () {
-  var formStorage = JSON.stringify(data);
-  localStorage.setItem('code-journal-input', formStorage);
+  changeView('entries');
 });
 
 function renderEntryDomTree(entry) {
@@ -37,7 +32,9 @@ function renderEntryDomTree(entry) {
 
   var headingEntry = document.createElement('h2');
   var headingText = document.createTextNode(entry.title);
-  headingEntry.appendChild(headingText);
+  var elementI = document.createElement('i');
+  elementI.setAttribute('class', 'fas fa-pencil-alt');
+  headingEntry.append(headingText, elementI);
 
   var divInputSection = document.createElement('div');
   divInputSection.setAttribute('class', 'column-half input-section');
@@ -54,23 +51,31 @@ function renderEntryDomTree(entry) {
 
   var liAnEntry = document.createElement('li');
   liAnEntry.setAttribute('class', 'row an-entry');
+  liAnEntry.setAttribute('data-entry-id', entry.entryId);
 
   liAnEntry.append(divImageSection, divInputSection);
 
   return liAnEntry;
 }
 window.addEventListener('DOMContentLoaded', function () {
-  var storageLocal = localStorage.getItem('code-journal-input');
-  if (storageLocal !== null) {
-    var storageData = JSON.parse(storageLocal);
-    data.view = storageData.view;
-    data.entries = storageData.entries;
-    data.editing = storageData.editing;
-    data.nextEntryId = storageData.nextEntryId;
-  }
-
   for (var ent = 0; ent < data.entries.length; ent++) {
     var list = renderEntryDomTree(data.entries[ent]);
     entryHolder.appendChild(list);
   }
 });
+
+var buttonNewEntry = document.getElementById('new-entry');
+buttonNewEntry.addEventListener('click', function () {
+  changeView('entry-form');
+});
+
+function changeView(view) {
+  if (view === 'entry-form') {
+    document.querySelector('[data-view=entry-form]').style.display = 'flex';
+    document.querySelector('[data-view=entries]').style.display = 'none';
+  } else {
+    document.querySelector('[data-view=entry-form]').style.display = 'none';
+    document.querySelector('[data-view=entries]').style.display = 'block';
+  }
+}
+changeView('entries');

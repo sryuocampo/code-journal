@@ -90,3 +90,8 @@ a {
 .current-entries {
   max-width: 100%;
 }
+
+.input-section > h2 {
+  display: flex;
+  justify-content: space-between;
+}
