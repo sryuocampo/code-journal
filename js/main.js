@@ -70,10 +70,12 @@ buttonNewEntry.addEventListener('click', function () {
 });
 
 function changeView(view) {
+
   if (view === 'entry-form') {
     document.querySelector('[data-view=entry-form]').style.display = 'flex';
     document.querySelector('[data-view=entries]').style.display = 'none';
   } else {
+    document.getElementsByClassName('entries');
     document.querySelector('[data-view=entry-form]').style.display = 'none';
     document.querySelector('[data-view=entries]').style.display = 'block';
   }

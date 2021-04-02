@@ -16,9 +16,6 @@ window.addEventListener('DOMContentLoaded', function () {
   var storageLocal = localStorage.getItem('code-journal-input');
   if (storageLocal !== null) {
     var storageData = JSON.parse(storageLocal);
-    data.view = storageData.view;
-    data.entries = storageData.entries;
-    data.editing = storageData.editing;
-    data.nextEntryId = storageData.nextEntryId;
+    data = storageData;
   }
 });
