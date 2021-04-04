@@ -14,15 +14,23 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="background-color">
-      <div class="container">
-        <h2>Code Journal</h2>
+    <div class="background-color new-entry-header">
+      <div class="container code-entries-header">
+        <div class="new-entry-header">
+          <h2>Code Journal</h2>
+          <a href="#entries">Entries</a>
+        </div>
       </div>
     </div>
     <form id="entry-form" data-view="entry-form">
-      <div class="container" >
+      <div class="container">
         <div class="row">
           <div class="column-full entry-header">
             <h1>New Entry</h1>
@@ -30,7 +38,10 @@
         </div>
         <div class="row">
           <div class="column-half image-section">
-            <img id="photoPreview" src="./images/placeholder-image-square.jpg" />
+            <img
+              id="photoPreview"
+              src="./images/placeholder-image-square.jpg"
+            />
           </div>
           <div class="column-half input-section">
             <label for="title">Title</label>
@@ -49,6 +60,17 @@
       </div>
     </form>
 
+    <div id="entries" class="container" data-view="entries">
+      <div class="row">
+        <div class="column-full new-header">
+          <h1>Entries</h1>
+          <input type="button" id="new-entry" value="NEW" />
+        </div>
+      </div>
+      <div class="container current-entries">
+        <ul id="entries-list"></ul>
+      </div>
+    </div>
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
   </body>
