@@ -71,11 +71,26 @@ buttonNewEntry.addEventListener('click', function () {
 
 function changeView(view) {
   if (view === 'entry-form') {
-    document.querySelector('[data-view=entry-form]').style.display = 'flex';
-    document.querySelector('[data-view=entries]').style.display = 'none';
+    document.querySelector('[data-view=entry-form]').className = '';
+    document.querySelector('[data-view=entries]').className = 'hidden';
   } else {
-    document.querySelector('[data-view=entry-form]').style.display = 'none';
-    document.querySelector('[data-view=entries]').style.display = 'block';
+    document.querySelector('[data-view=entry-form]').className = 'hidden';
+    document.querySelector('[data-view=entries]').className = 'container';
   }
 }
 changeView('entries');
+
+entryHolder.addEventListener('click', function (event) {
+  if (event.target.matches('i.fas.fa-pencil-alt')) {
+    var closestLi = event.target.closest('[data-entry-id]');
+    var entryId = closestLi.getAttribute('data-entry-id');
+    entryId = parseInt(entryId);
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === entryId) {
+        data.editing = data.entries[i];
+        changeView('entry-form');
+        break;
+      }
+    }
+  }
+});
