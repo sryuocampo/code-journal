@@ -70,14 +70,12 @@ buttonNewEntry.addEventListener('click', function () {
 });
 
 function changeView(view) {
-
   if (view === 'entry-form') {
-    document.querySelector('[data-view=entry-form]').style.display = 'flex';
-    document.querySelector('[data-view=entries]').style.display = 'none';
+    document.querySelector('[data-view=entry-form]').className = '';
+    document.querySelector('[data-view=entries]').className = 'hidden';
   } else {
-    document.getElementsByClassName('entries');
-    document.querySelector('[data-view=entry-form]').style.display = 'none';
-    document.querySelector('[data-view=entries]').style.display = 'block';
+    document.querySelector('[data-view=entry-form]').className = 'hidden';
+    document.querySelector('[data-view=entries]').className = 'container';
   }
 }
 changeView('entries');
